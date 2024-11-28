@@ -21,6 +21,140 @@
     <link rel="stylesheet" href="assets/css/templatemo-lava.css">
 
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Header Styles */
+        .responsive-header {
+            background: linear-gradient(90deg, #0e1a35, #003973);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        /* Buttons */
+        .btn-orange {
+            background-color: #ff5722;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .btn-blue {
+            background-color: #2196f3;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .btn-orange:hover,
+        .btn-blue:hover {
+            opacity: 0.9;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Navigation Menu */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-nav .nav-item {
+            display: inline-block;
+        }
+
+        .main-nav .nav-link {
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .main-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile Menu */
+        .menu-container {
+            display: none;
+            flex-direction: column;
+            background-color: #003973;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .menu-container.show {
+            display: flex;
+        }
+
+        .menu-container ul {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu-container .nav-item {
+            text-align: center;
+        }
+
+        .menu-container .nav-buttons {
+            margin-top: 10px;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .main-nav {
+                display: none;
+                /* Desktop menu hidden for mobile */
+            }
+
+            .menu-container {
+                display: none;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .main-nav {
+                display: flex !important;
+                flex-direction: row;
+            }
+        }
+    </style>
 
 </head>
 
@@ -36,46 +170,66 @@
     </div>
     <!-- ***** Preloader End ***** -->
 
+    <!-- Responsive Header -->
+    <header class="responsive-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="assets/photos/photo_6194888428219383857_x-removebg-preview.png" alt="Logo">
+                </a>
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/photos/photo_6194888428219383857_x-removebg-preview.png" alt="Lava Logo"
-                                class="img-fluid" style="height: 80px;">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a style="color: white; font-weight: bold;"
-                                    href="index.html">Home</a></li>
-                            <li class="scroll-to-section"><a style="color: white; font-weight: bold;" href="#about"
-                                    class="menu-item">About</a></li>
-                            <li class="scroll-to-section"><a style="color: white; font-weight: bold;"
-                                    href="#testimonials" class="menu-item">App installing</a>
-                            </li>
-                            <li class="scroll-to-section"><a style="color: white; font-weight: bold;" href="#contact-us"
-                                    class="menu-item">Contact Us</a></li>
-                            <li class="scroll-to-section"><a style="color: white; font-weight: bold;"
-                                    href="Registration.html">Registration</a></li>
+                <!-- Mobile Menu Toggle -->
+                <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
 
-                            <li class="scroll-to-section"><a style="color: white; font-weight: bold;"
-                                    href="Login.html">Login</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
+                <!-- Desktop Menu -->
+                <nav class="main-nav">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#testimonials" class="nav-link">App Installing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact-us" class="nav-link">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+                        <a href="Registration.html" class="btn btn-orange">Registration</a>
+                        <a href="Login.html" class="btn btn-blue">Login</a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div class="menu-container">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#testimonials" class="nav-link">App Installing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact-us" class="nav-link">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="nav-buttons d-flex flex-column gap-2 mt-3">
+                    <a href="Registration.html" class="btn btn-orange">Registration</a>
+                    <a href="Login.html" class="btn btn-blue">Login</a>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
+
 
     <!-- Welcome Area -->
     <div class="container welcome-area py-5 my-5">
@@ -358,7 +512,8 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <button disabled type="submit" id="form-submit" class="main-button">Register Now</button>
+                                            <button disabled type="submit" id="form-submit" class="main-button">Register
+                                                Now</button>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -412,6 +567,15 @@
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle mobile menu visibility
+        function toggleMenu() {
+            const menuContainer = document.querySelector('.menu-container');
+            menuContainer.classList.toggle('show');
+        }
+    </script>
 </body>
 
 </html>
